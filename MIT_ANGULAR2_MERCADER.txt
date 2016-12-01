@@ -1,0 +1,125 @@
+ANGULAR 2
+
+Angular 2 is the new improved version of the ever popular JavaScript framework AngularJS.
+ Angular 2 is a re-imagining of Angular applying all lessons learned 
+from v1.x and promotes a component based architecture while leveraging new 
+features of ES2015 (or TypeScript) like classes and modules.
+
+
+
+FROM ANGULAR 1 TO ANGULAR 2
+
+•New and more explicit way to bootstrap an app in Angular 2. Now we use a bootstraper from angular2/platform/browser 
+ (platform specific) and point it to the root component of the application (f.i. bootstrap(MainComponent)) 
+ instead of Angular 1 ng-app.
+•Components in Angular 2 are like a directive with a template, an isolated scope and a controller.
+•ng-repeat becomes *ngFor, ng-if becomes *ngIf.
+•data binding
+    • interpolation just like in Angular 1 but removing vm (from to).
+    • one-way data binding in Angular 1 ng-bind in Angular 2 is called property binding and denoted inside [] (f.i. <person-detail [id]="person.id" />).
+    • event binding from Angular 1 ng-click, ng-change, etc to Angular 2 (click), (change).
+    • two-way data binding from Angular 1 ng-model to Angular 2 [(ngModel)].
+
+•Angular 2 has a lot less directives than Angular 1. 
+ In Angular 2 you can leverage the property-binding syntax to bind to DOM properties and events directly. (40+ angular directives according to John papa)
+•Angular 2 consolidates the idea of service classes. From Angular 1 service, factory, providers, constants and values we get Angular 2 services which are just classes.
+•You need to be more explicit with dependency injection and signal within a component configuration which services and which other components you are going to use.
+•Angular 1 modules become ES6 modules in Angular 2
+•Angular 1 filters become Angular 2 pipes
+•Angular 2 http uses mainly rxjs instead of promises (although you can converted a stream into a promise)
+•Angular 2 routing
+    • use @RouteConfig decorator instead of ng1 $routeProvider
+    • use <router-outlet instead of <ng-view>
+    • use [router-link]="link" instead of ng-href
+    • use RouteParams instead of $routerParams
+    • use Router instead of $router
+    • child routes built-in ng2 (sub-components can define their own routing)
+
+
+ANGULAR 2
+
+Angular 2 conceptual model is an improvement over Angular 1 in two main ways:
+
+1. it improves many of its existing parts (f.i. like modules which are now standard ES6 modules)
+2. it condenses the number of concepts within the framework into a more cohesive unit with less redundant components (*f.i. like unifying services and factories, and providing a much better way to create components/directives)
+
+These are the core building blocks of Angular 2:
+
+•Modules which group or encapsulate functionality within the application
+•Components which represent a unified View + View Model + Styles unit that you can compose to create an application
+•Templates which represent a view with a special syntax to enhance html with Angular2 functionality like data binding
+•Metadata that wires everything together, a view with a view model with styles, etc
+•Data Binding to flow data changes between view and view model and vice versa
+•Services to encapsulate and reuse non-view related logic that can be used by different parts of an application
+•Directives
+•Dependency Injection to inject the necessary dependencies for a given component/service at runtime and provide flexibility, extensibility and testability to the framework and your application
+
+
+MODULES
+
+Angular 2 is a modular framework where every piece of functionality is encapsulated 
+within a module and exposed to other parts of the application as a service (in the general sense). 
+There’s usually two kinds of modules, those that encapsulate a piece of functionality with a single 
+reponsibility (like a single component or a service) and those that group other modules to expose 
+them through a unified manner (for instance the angular/core module that acts as a facade over many other modules in Angular 2).
+
+COMPONENTS
+
+Components are similar to View Models in the MVVM pattern (or controllers in Angular 1) they control a piece of UI by providing it with data and logic
+
+Together with a Template, Metadata and optionally styles, they constitute an isolated and encapsulated unit of UI. The view (or template) represents 
+how the component will look like when rendered on the browser, the view model contains all the necessary logic to provide the view with rich functionality 
+and data, the styles provide the component with a specific look and feel, and the metadata wires everything together. Noteworthy is the fact that component 
+styles are only applied to the component itself, that is, they are scoped to the component.
+
+
+COMMUNICATE COMPONENTS
+
+    @Input decorated properties allow a parent controller to communicate and pass data into a child controller
+    @Output decorated events allow a child controller to communicate and pass data into a parent controller
+
+
+TEMPLATES
+
+Templates represent the view part of a component, they augment HTML with new syntax and behavior to enable things such as interpolation, two-way data binding, etc.
+
+That contains a lot of special stuff in addition to vanilla HTML:
+
+• “ that is bound to the helloWorld variable and displays its value (just like in Angular1)
+• *ngFor="#person of persons" that works like ng-repeat and is going to replicate the subtemplate decorated with this attribute and declare a local variable person that you can use inside this subtemplates
+• (click) that lets you set up a click event handler
+• a person-salute component that encapsulates a person salute
+• an *ngIf="selectedPerson" that works like ng-if and is going to decide whether to add this element to the DOM based on an expression
+• a [person]="selectedPerson" that passes the selectedPerson to the person-salute component
+
+
+METADATA
+
+Metadata wires up the different parts that we’ve seen thus far. For instance, the HelloWorldComponent is just a class, it doesn’t become an Angular 2 Component 
+until we decorate it with the Component decorator
+
+The Component decorator associates a bunch of metadata to the HelloWorld class that tells Angular 2 how to work with it and render it in your application at runtime. Some of these are:
+
+• selector: which tells angular which custom html he must associate this component to
+• templateUrl: a url for the template to use when rendering this component
+      •template also lets you define the template directly
+• an array of directives to tell angular which components or directives will be used in this particular component
+• an array of styleUrls that lets you define custom specific styles for the component
+• an array of providers that tells Angular2 how to inject dependencies (like services) inside a component
+
+There are other decorators like @Injectable that tells angular that a particular something (like a service) can be injected or
+ @RouterConfig that lets you configure routing in your application.
+
+
+DATA BINDING
+
+Data binding lets you bind data and interaction between a template and a component in a declarative manner. Angular offers four types of data binding (which can be to the DOM, from the DOm and two-way):
+
+• interpolation lets you display a component’s property in a view. It looks like this: “
+• the property binding lets you pass data between parent and child components. For instance [person]=selectedPerson sends the selectedPerson property in the parent to the person property in the child component.
+• the event binding lets you bind DOM events to methods within your component. It looks like this (click)=destroyUniverse()
+• two-way data binding combines property and event binding into a single notation with [(ngModel)] and establishes a two-way data binding between template and component.
+
+
+
+
