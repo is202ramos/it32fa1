@@ -10,9 +10,7 @@ AngularJS is by far the most popular JavaScript framework available today for cr
 
 According to Google engineering director Brad Green, 1.3 million developers use AngularJS and 300 thousand are already using the soon to be released Angular 2. After working with Angular 2 for the last 10 months I believe its impact on the JavaScript community will rival that of the Spring framework on Java.
 
-In this article Iíll provide a high-level overview of the Angular 2 framework.
-
-At the end of 2014 Google announced that Angular 2 would be a complete rewrite of AngularJS, and they even created a new language ìAtScriptî that was meant to be used for writing Angular 2 applications.
+At the end of 2014 Google announced that Angular 2 would be a complete rewrite of AngularJS, and they even created a new language ‚ÄúAtScript‚Äù that was meant to be used for writing Angular 2 applications.
 
 But then Microsoft agreed to add support for decorators (a.k.a. annotations) to their TypeScript language (a strict superset of JavaScript), and so that emerged as the language for the development of the Angular 2 framework itself, and the recommended language for developing applications using the AngularJS framework.
 
@@ -21,6 +19,3 @@ You can also develop Angular 2 apps in JavaScript (both ECMAScript 5 and 6) and 
 In addition, the Angular team integrated yet another Microsoft product - the RxJS library of reactive JavaScript extensions, into the Angular 2 framework.
 
 Angular 2 is not an MVC framework, but rather a component-based framework. In Angular 2 an application is a tree of loosely coupled components.
-
-For example, the screenshot below shows the landing page of a sample online auction application that was initially prototyped as a collection of Navbar, Search, Carousel, Product, and Footer components.
-
